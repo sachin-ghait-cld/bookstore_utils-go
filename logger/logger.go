@@ -23,6 +23,7 @@ type logger struct {
 }
 type loggerIfc interface {
 	Printf(string, ...interface{})
+	Print(...interface{})
 }
 
 func init() {
@@ -77,6 +78,10 @@ func (l logger) Printf(format string, v ...interface{}) {
 		Info(fmt.Sprintf(format, v...))
 	}
 
+}
+
+func (l logger) Print(v ...interface{}) {
+	Info(fmt.Sprintf("%v", v))
 }
 
 // Info Info
